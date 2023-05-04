@@ -1,0 +1,96 @@
+{
+  "nodes": {
+    "NeMo": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1683734572,
+        "narHash": "sha256-7Jo3pVUW5VPcLVAS8qeTyuVQ8qxSByOFjhAyE37+BNM=",
+        "owner": "NVIDIA",
+        "repo": "Nemo",
+        "rev": "e6ee3312fb3f35b9d95b54b64c2abed4574708b9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NVIDIA",
+        "repo": "Nemo",
+        "rev": "e6ee3312fb3f35b9d95b54b64c2abed4574708b9",
+        "type": "github"
+      }
+    },
+    "flake-utils": {
+      "inputs": {
+        "systems": "systems"
+      },
+      "locked": {
+        "lastModified": 1681202837,
+        "narHash": "sha256-H+Rh19JDwRtpVPAWp64F+rlEtxUWBAQW28eAi3SRSzg=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "cfacdce06f30d2b68473a46042957675eebb3401",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "megatron-lm": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1683574124,
+        "narHash": "sha256-EAOJY6nJUCP75epRofBMVYZ1M7DeWuU12FlCB6PigTM=",
+        "owner": "NVIDIA",
+        "repo": "Megatron-LM",
+        "rev": "9f8bdeb4814ed61fbc9c7d5b39c7710e77b99754",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NVIDIA",
+        "repo": "Megatron-LM",
+        "rev": "9f8bdeb4814ed61fbc9c7d5b39c7710e77b99754",
+        "type": "github"
+      }
+    },
+    "nixpkgs-unstable": {
+      "locked": {
+        "lastModified": 1683475240,
+        "narHash": "sha256-sy6MYoCaIZsOenYplbzVXI4Ce9Bp/vIOpuFa97+a6wc=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "e040aab15638aaf8d0786894851a2b1ca09a7baf",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "ref": "nixpkgs-unstable",
+        "type": "indirect"
+      }
+    },
+    "root": {
+      "inputs": {
+        "NeMo": "NeMo",
+        "flake-utils": "flake-utils",
+        "megatron-lm": "megatron-lm",
+        "nixpkgs-unstable": "nixpkgs-unstable"
+      }
+    },
+    "systems": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}

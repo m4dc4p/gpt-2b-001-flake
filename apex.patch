@@ -1,0 +1,11 @@
+--- a/apex/contrib/csrc/layer_norm/ln.h
++++ b/apex/contrib/csrc/layer_norm/ln.h
+@@ -3,6 +3,8 @@
+ #include <unordered_map>
+ #include <cuda_fp16.h>
+ #include <cuda_bf16.h>
++#include <stdint.h>
++#include <stdio.h>
+ 
+ namespace layer_norm {
+ 
