@@ -484,7 +484,7 @@
           transformers = python3Packages.transformers.overrideAttrs (old: {
             propagatedBuildInputs = [ huggingface-hub python3Packages.fsspec ] ++ (builtins.filter (p: (! p ? pname) || p.pname != "huggingface-hub") old.propagatedBuildInputs);
           });
-          megatron-gpt-eval = rec {
+          megatron-gpt-eval-def = rec {
             python = python3.withPackages (ps: with ps; [
               aiofiles
               altair
@@ -570,7 +570,7 @@
                   export LD_LIBRARY_PATH=$LIBCUDA_PATH:$LD_LIBRARY_PATH
 
                   (cd ${NeMo}/examples/nlp/language_modeling; \
-                  ${python}/bin/python megatron_gpt_eval.py "$@"
+                  ${python}/bin/python megatron_gpt_eval.py "$@")
                 '';
               };
             server =  stdenv.mkDerivation rec {
@@ -658,7 +658,7 @@ while True:
 
           shell = pkgs-unstable.mkShell {
               packages = [];
-              buildInputs = [ megatron-gpt-eval.python ];
+              buildInputs = [ megatron-gpt-eval-def.python ];
               shellHook = ''
                 
                 LIBCUDA_PATH='' + "\${LIBCUDA_PATH:-/usr/lib/wsl/lib}" + ''
@@ -680,9 +680,11 @@ while True:
               default = shell;
             };
             apps = rec {
+              default = megatron-gpt-eval;
+
               megatron-gpt-eval = {
                 type = "app";
-                program = "${megatron-gpt-eval.server}/bin/${megatron-gpt-eval.server.name}";
+                program = "${megatron-gpt-eval-def.server}/bin/${megatron-gpt-eval-def.server.name}";
               };
 
               chat = {
@@ -690,7 +692,6 @@ while True:
                 program = "${chat-pg}/bin/${chat-pg.name}";
               };
 
-              default = megatron-gpt-eval;
             };
           }
       );

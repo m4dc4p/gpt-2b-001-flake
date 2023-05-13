@@ -17,9 +17,15 @@ the model (`chat`).
 
 
 ```bash
-$ nix run --impure --option sandbox false .#megatron-gpt-eval -- --gpt_model_file=GPT-2B-001_bf16_tp1.nemo trainer.precision=bf16 server=True tensor_model_parallel_size=1 trainer.devices=1)
-
+$ nix run --impure --option sandbox false .#megatron-gpt-eval -- \
+  gpt_model_file=<absolute path to GPT-2B-001_bf16_tp1.nemo> \
+  trainer.precision=bf16 \
+  server=True \
+  tensor_model_parallel_size=1 \
+  trainer.devices=1
 ```
+
+The path to `GPT-2B-001_bf16_tp1.nemo` must be absolute, as the server will change directories before starting.
 
 Note that this step will take quite awhile the first time, as CUDA, pytorch and other dependencies are downloaded and built. You may be able to speed up your build using
 the CUDA maintainers cachix (`cachix use cuda-maintainers`); see instructions at https://nixos.wiki/wiki/CUDA#Building_CUDA_packages_with_Nix.
