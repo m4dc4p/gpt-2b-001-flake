@@ -679,6 +679,10 @@ while True:
             devShells =  {
               default = shell;
             };
+            packages = {
+              megatron-gpt-eval = megatron-gpt-eval-def.server;
+              chat = chat-pg;
+            };
             apps = rec {
               default = megatron-gpt-eval;
 
