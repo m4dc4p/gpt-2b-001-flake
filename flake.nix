@@ -26,7 +26,7 @@
             inherit system; 
             config.allowUnfree = true; 
             config.cudaCapabilities = [ "8.6" ];
-            config.cudaForwardCompat = false;
+            config.cudaForwardCompat = true;
           });
           inherit (pkgs-unstable) 
             cudaPackages_11_8
@@ -680,6 +680,7 @@ while True:
               default = shell;
             };
             packages = {
+              default = megatron-gpt-eval-def.server;
               megatron-gpt-eval = megatron-gpt-eval-def.server;
               chat = chat-pg;
             };
